@@ -1,27 +1,43 @@
-#container {
-  text-align: center;
+// =============================================================================
+// HOME.PAGE.SCSS - estilos del componente Home escritos en Sass (SCSS)
+// Angular/Ionic lo compila automáticamente a CSS al hacer "ionic serve".
+// =============================================================================
+@use '../../theme/tokens' as t;   // importamos variables y mixins del partial
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+.home {
+  // Anidamiento: todos los estilos de la página quedan dentro de .home
+  padding: t.$espacio;
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+  // 1) Título: rojo, mayúsculas y centrado
+  &__titulo {                      // "&" = selector padre -> .home__titulo (BEM)
+    color: t.$color-titulo;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: t.$espacio;
+  }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+  // 2) Botón a la derecha y en azul
+  &__acciones {
+    @include t.fila(flex-end);     // mixin: flex con justify-content: flex-end
 
-  color: #8c8c8c;
+    ion-button {
+      // ion-button se colorea con sus variables CSS propias de Ionic
+      --background: #{t.$color-boton};
+      --background-hover: #{t.oscurecer(t.$color-boton)};  // función Sass
+      --color: #ffffff;
+    }
+  }
 
-  margin: 0;
-}
+  // 3) Imagen centrada con borde verde de 3px
+  &__imagen-wrap {
+    @include t.fila(center);       // el mismo mixin, ahora centrando
+    margin-top: t.$espacio * 1.5;  // operación con variables
+  }
 
-#container a {
-  text-decoration: none;
+  &__imagen {
+    max-width: 100%;
+    width: 400px;
+    border: t.$borde-imagen solid t.$color-borde;
+    border-radius: t.$radio;
+  }
 }

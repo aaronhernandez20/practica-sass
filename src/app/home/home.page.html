@@ -1,20 +1,22 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Práctica Sass</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="home">
+    <!-- Título (etiqueta HTML) -->
+    <h1 class="home__titulo">Mi primera página con Sass</h1>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <!-- Botón (etiqueta Ionic) alineado a la derecha -->
+    <div class="home__acciones">
+      <ion-button>Pulsar</ion-button>
+    </div>
+
+    <!-- Imagen centrada con borde verde -->
+    <div class="home__imagen-wrap">
+      <img class="home__imagen" src="https://picsum.photos/id/1015/400/250" alt="Paisaje de ejemplo" />
+    </div>
   </div>
 </ion-content>

@@ -1,0 +1,30 @@
+// =============================================================================
+// THEME / _TOKENS.SCSS  (partial: empieza por "_" y no genera CSS por sí solo)
+// Variables y mixins reutilizables para toda la app.
+// Se importa en cada componente con:  @use '../../theme/tokens' as t;
+// =============================================================================
+
+@use 'sass:color';
+
+// --- Variables de color (lo que pide el enunciado) ---
+$color-titulo: #e11d48;   // rojo
+$color-boton:  #2563eb;   // azul
+$color-borde:  #16a34a;   // verde
+
+// --- Otras variables ---
+$borde-imagen: 3px;       // grosor del borde de la imagen
+$espacio: 1rem;
+$radio: 12px;
+
+// --- Mixin: contenedor flex con alineación configurable ---
+// $justify decide la posición horizontal (center, flex-end = derecha...)
+@mixin fila($justify: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+
+// --- Función: oscurece un color un porcentaje (se calcula al compilar) ---
+@function oscurecer($c, $cuanto: 10%) {
+  @return color.adjust($c, $lightness: -$cuanto);
+}
